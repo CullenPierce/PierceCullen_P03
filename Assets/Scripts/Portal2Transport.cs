@@ -7,7 +7,7 @@ public class Portal2Transport : MonoBehaviour
     Transform portal1;
     Transform portal2;
     CharacterController FPP;
-    float portalRotationDifference;
+    [SerializeField] AudioSource teleport;
 
 
     void OnTriggerEnter(Collider other)
@@ -24,12 +24,13 @@ public class Portal2Transport : MonoBehaviour
     {
         portal1 = GameObject.FindGameObjectWithTag("Portal1").GetComponent<Transform>();
         portal2 = GameObject.FindGameObjectWithTag("Portal2").GetComponent<Transform>();
-        portalRotationDifference = portal1.eulerAngles.y - portal2.eulerAngles.y;
+        
         
         teleportCooldown.changeCooldown();
         
         FPP.enabled = false;
         FPP.transform.position = new Vector3(portal1.position.x, portal1.position.y, portal1.position.z);
+        teleport.Play();
         if(portal1.eulerAngles.y == portal2.eulerAngles.y)
         {
             FPP.transform.Rotate(0, 180, 0);

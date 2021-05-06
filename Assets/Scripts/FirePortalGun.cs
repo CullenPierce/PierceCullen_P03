@@ -7,6 +7,7 @@ public class FirePortalGun : MonoBehaviour
     [SerializeField] GameObject portal1;
     [SerializeField] GameObject portal2;
     [SerializeField] Camera cameraController;
+    [SerializeField] AudioSource shoot;
     int layerMask = 1 << 9;
     GameObject portal1Instance;
     GameObject portal2Instance;
@@ -27,6 +28,7 @@ public class FirePortalGun : MonoBehaviour
     }
     void ShootPortal1()
     {
+        shoot.Play();
         Vector3 rayDirection = cameraController.transform.forward;
         if(Physics.Raycast(cameraController.transform.position, rayDirection, out objectHit, Mathf.Infinity, layerMask))
         {
@@ -42,6 +44,7 @@ public class FirePortalGun : MonoBehaviour
     }
     void ShootPortal2()
     {
+        shoot.Play();
         Vector3 rayDirection = cameraController.transform.forward;
         if(Physics.Raycast(cameraController.transform.position, rayDirection, out objectHit, Mathf.Infinity, layerMask))
         {

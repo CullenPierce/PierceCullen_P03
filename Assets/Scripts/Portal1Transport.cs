@@ -7,7 +7,7 @@ public class Portal1Transport : MonoBehaviour
     Transform portal2;
     Transform portal1;
     CharacterController FPP;
-    
+    [SerializeField] AudioSource teleport;
     
     
     
@@ -31,6 +31,7 @@ public class Portal1Transport : MonoBehaviour
         
         FPP.enabled = false;
         FPP.transform.position = new Vector3(portal2.position.x, portal2.position.y, portal2.position.z);
+        teleport.Play();
         if(portal1.eulerAngles.y == portal2.eulerAngles.y)
         {
             Debug.Log(portal1.localEulerAngles.y+ " "+ portal2.localEulerAngles.y);
