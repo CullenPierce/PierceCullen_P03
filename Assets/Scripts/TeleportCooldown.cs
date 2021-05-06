@@ -9,16 +9,14 @@ public class TeleportCooldown : MonoBehaviour
     
     public bool OnCooldown()
     {
-        Debug.Log(_onCooldown);
+        
         if(_onCooldown == false)
         {
-           //Debug.Log("not on cooldown");
             return false;
 
         }
         else
         {
-            //Debug.Log("on cooldown");
             return true;
         }
     }
@@ -26,7 +24,6 @@ public class TeleportCooldown : MonoBehaviour
     {
         if(_onCooldown == false)
         {
-            //Debug.Log(_onCooldown);
             _onCooldown = true;
         }
         else
